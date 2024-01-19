@@ -3,7 +3,7 @@ import IntemTarea from "./IntemTarea";
 
 const ListaTareas = () => {
   return (
-    <ListGroup>
+    <ListGroup className="py-3">
       <IntemTarea></IntemTarea>
 
     </ListGroup>
