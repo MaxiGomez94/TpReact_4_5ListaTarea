@@ -16,7 +16,7 @@ const ListaTarea = () => {
           className="mt-5 mb-5 d-flex me-3"
           controlId="exampleForm.ControlInput1"
         >
-          <Form.Control type="email" placeholder="Ingrese Su Tarea :" className="me-2" />
+          <Form.Control type="text" placeholder="Ingrese Su Tarea :" className="me-2" />
           <Button size='active' type='submit' >Agregar</Button>
         </Form.Group>
       </Form>
