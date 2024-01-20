@@ -3,26 +3,27 @@ import ListaTareas from "./ListaTareas";
 import { useState } from "react";
 
 const FormularioTarea = () => {
-  //  se declara el nombre del estado , luego la funcion que manipula el estado que seria setTarea
   const [tarea, setTarea] = useState("");
   const [arrayTareas, setArrayTareas] = useState([]);
-  
 
-  const handleSubmit = (e)=>{
+  const handleSubmit = e => {
     e.preventDefault();
-    // guarda el state tarea en el arrayTarea
-    // operador spread es (...)
-    setArrayTareas([...arrayTareas,tarea])
-  // limpiar imput
-    setTarea('');
-  }
 
-  const borrarTarea = (nombreTarea)=>{
-    // borrar una tarea
-    const arregloFiltrado = arrayTareas.filter((elementoTarea)=> elementoTarea !== nombreTarea)
-    // actualizar en el state 
+    if (tarea.trim() === "") {
+      alert("La tarea está vacía");
+      return;
+    }
+
+    setArrayTareas([...arrayTareas, tarea]);
+    setTarea("");
+  };
+
+  const borrarTarea = nombreTarea => {
+    const arregloFiltrado = arrayTareas.filter(
+      elementoTarea => elementoTarea !== nombreTarea
+    );
     setArrayTareas(arregloFiltrado);
-  }
+  };
 
   return (
     <section className="text-light">
@@ -41,15 +42,20 @@ const FormularioTarea = () => {
             type="text"
             placeholder="Ingrese Su Tarea :"
             className="me-2"
-            onChange={(e)=>setTarea(e.target.value)}
+            onChange={e => setTarea(e.target.value)}
             value={tarea}
+            pattern="^.{5,80}$"
+            title="Por favor ingrese entre 5 y 80 caracteres"
           />
           <Button size="active" type="submit">
             Agregar
           </Button>
         </Form.Group>
       </Form>
-      <ListaTareas arrayTareas={arrayTareas} borrarTarea={borrarTarea}></ListaTareas>
+      <ListaTareas
+        arrayTareas={arrayTareas}
+        borrarTarea={borrarTarea}
+      ></ListaTareas>
     </section>
   );
 };
