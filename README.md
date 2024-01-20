@@ -4,3 +4,6 @@ Crear una aplicación web que  muestre una lista de tareas, al ingresar una tare
 
 
 <img src="./src/asset/tareas.PNG" alt="" />
+
+deploy del ejercicio 
+https://tp-react-4-5-lista-tarea.vercel.app/
